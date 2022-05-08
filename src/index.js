@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import "./style.css";
 const formList = document.querySelector(".form");
 const addNew = document.querySelector(".input");
