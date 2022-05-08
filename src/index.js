@@ -5,7 +5,7 @@ const addNew = document.querySelector('.input');
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const upDate = document.querySelector('.refresh');
-let list = JSON.parse(localStorage.getItem("list"));
+let list = JSON.parse(localStorage.getItem('list'));
 
 const updateLocalStorage = () => {
   const newLists = document.querySelectorAll('li');
@@ -31,26 +31,26 @@ const toDoList = (task) => {
     newList.classList.add('checked');
   }
   newList.innerText = newTask;
-  addNew.value = "";
+  addNew.value = '';
   const checkBtnEl = document.createElement('div');
-  checkBtnEl.innerHTML = `<i class="fas fa-check-square">`;
+  checkBtnEl.innerHTML = `<i class='fas fa-check-square'>`;
   newList.appendChild(checkBtnEl);
   container.appendChild(newList);
   const trashBtnEl = document.createElement('div');
-  trashBtnEl.innerHTML = `<i class="fas fa-trash"></i>`;
+  trashBtnEl.innerHTML = `<i 'lass='fas fa-trash'></i>`;
   newList.appendChild(trashBtnEl);
 
-  checkBtnEl.addEventListener("click", () => {
+  checkBtnEl.addEventListener('click', () => {
     newList.classList.toggle('checked');
     updateLocalStorage();
   });
 
-  trashBtnEl.addEventListener("click", () => {
+  trashBtnEl.addEventListener('click', () => {
     newList.remove();
     updateLocalStorage();
   });
 
-  clearAll.addEventListener("click", () => {
+  clearAll.addEventListener('click', () => {
     if (newList.classList.contains('checked')) {
       newList.remove();
       updateLocalStorage();
@@ -60,7 +60,7 @@ const toDoList = (task) => {
   upDate.addEventListener("click", updateLocalStorage());
 
   updateLocalStorage();
-}
+};
 
 if (list) {
   list.forEach((task) => {
@@ -68,7 +68,7 @@ if (list) {
   });
 }
 
-formList.addEventListener("submit", (event) => {
+formList.addEventListener('submit', (event) => {
   event.preventDefault();
   toDoList();
 });
