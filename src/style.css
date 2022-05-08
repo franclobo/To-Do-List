@@ -28,6 +28,13 @@ body {
   font-size: 20px;
 }
 
+h1 {
+  position: relative;
+  top: -30px;
+  margin: 0;
+  padding: 0;
+}
+
 .refresh {
   border: none;
   height: 40px;
@@ -35,7 +42,6 @@ body {
   cursor: pointer;
   position: relative;
   top: -30px;
-  right: -40px;
 }
 
 .input {
