@@ -33,11 +33,15 @@ const toDoList = (task) => {
   newList.innerText = newTask;
   addNew.value = '';
   const checkBtnEl = document.createElement('div');
-  checkBtnEl.innerHTML = `<i class='fas fa-check-square'>`;
+  checkBtnEl.innerHTML = `
+  <i class="fas fa-check-square"></i>
+  `;
   newList.appendChild(checkBtnEl);
   container.appendChild(newList);
   const trashBtnEl = document.createElement('div');
-  trashBtnEl.innerHTML = `<i class='fas fa-trash'>`;
+  trashBtnEl.innerHTML = `
+  <i class="fas fa-trash"></i>
+  `;
   newList.appendChild(trashBtnEl);
 
   checkBtnEl.addEventListener('click', () => {
