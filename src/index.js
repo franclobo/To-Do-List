@@ -37,7 +37,7 @@ const toDoList = (task) => {
   newList.appendChild(checkBtnEl);
   container.appendChild(newList);
   const trashBtnEl = document.createElement('div');
-  trashBtnEl.innerHTML = `<i 'lass='fas fa-trash'></i>`;
+  trashBtnEl.innerHTML = `<i class='fas fa-trash'>`;
   newList.appendChild(trashBtnEl);
 
   checkBtnEl.addEventListener('click', () => {
@@ -57,7 +57,7 @@ const toDoList = (task) => {
     }
   });
 
-  upDate.addEventListener("click", updateLocalStorage());
+  upDate.addEventListener('click', updateLocalStorage());
 
   updateLocalStorage();
 };
