@@ -85,9 +85,9 @@ h1 {
 }
 
 .list li .fa-check-square {
-  color: darkgray;
+  color: darkblue;
   position: absolute;
-  right: 20px;
+  right: 370px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
