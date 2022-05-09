@@ -1,7 +1,7 @@
 import './style.css';
 
-//This code is based on the video: https://www.youtube.com/watch?v=ePzOFu2xXUQ
-//and adapted to the MIcroverse requirements.
+// This code is based on the video: https://www.youtube.com/watch?v=ePzOFu2xXUQ
+// and adapted to the MIcroverse requirements.
 
 const formList = document.querySelector('.form');
 const addNew = document.querySelector('.input');
