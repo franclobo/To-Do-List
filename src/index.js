@@ -1,4 +1,5 @@
 //import { add } from 'lodash';
+
 import './style.css';
 
 // This code is based on the video: https://www.youtube.com/watch?v=ePzOFu2xXUQ
@@ -28,7 +29,7 @@ const updateLocalStorage = () => {
     list.push({
       description: newList.innerText,
       completed: newList.classList.contains('checked'),
-      index: list.length++,
+      index: list.length + 1,
     });
   });
   localStorage.setItem('list', JSON.stringify(list));
