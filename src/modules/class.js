@@ -10,9 +10,9 @@ export class ToDoTasks {
 
 export const toDoTasks = new ToDoTasks();
 
-const updateLocalStorage = () => {
+export const updateLocalStorage = () => {
   const newLists = document.querySelectorAll('li');
-  list = [];
+  const list = [];
   newLists.forEach((newList) => {
     list.push({
       description: toDoTasks.description,
@@ -22,5 +22,3 @@ const updateLocalStorage = () => {
   });
   localStorage.setItem('list', JSON.stringify(list));
 };
-
-export default updateLocalStorage;
