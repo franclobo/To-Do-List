@@ -12,26 +12,10 @@ const upDate = document.querySelector('.refresh');
 let list = JSON.parse(localStorage.getItem('list')) || [];
 
 class ToDoTasks {
-  constructor(description = "", completed = false, index = null) {
+  constructor(description = '', completed = false, index = null) {
     this.description = description;
     this.completed = completed;
     this.index = index;
-  }
-
-  add(activity) {
-    this.activity[this.description] = activity;
-    this.index++;
-  }
-
-  remove() {
-    const item = this.description[this.index];
-    if (item != null) {
-      delete this.number[this.index];
-      this.index++;
-      return item;
-    } else {
-      return -1;
-    }
   }
 }
 
@@ -44,7 +28,7 @@ const updateLocalStorage = () => {
     list.push({
       description: newList.innerText,
       completed: newList.classList.contains('checked'),
-      index: list.length + 1,
+      index: list.length ++,
     });
   });
   localStorage.setItem('list', JSON.stringify(list));
