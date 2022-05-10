@@ -3,6 +3,10 @@
 import { forEach } from 'lodash';
 import './style.css';
 
+import updateLocalStorage from './modules/class.js';
+
+import { toDoTasks } from './modules/class.js'
+
 // This code is based on the videos: https://www.youtube.com/watch?v=ePzOFu2xXUQ and https://www.youtube.com/watch?v=MkESyVB4oUw&t=1904s
 // and adapted to the Microverse requirements.
 
@@ -11,46 +15,6 @@ const addNew = document.querySelector('.input');
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const upDate = document.querySelector('.refresh');
-let list = JSON.parse(localStorage.getItem('list')) || [];
-
-class ToDoTasks {
-  constructor(description = '', completed = false, index = null) {
-    this.description = description;
-    this.completed = completed;
-    this.index = index;
-  }
-}
-
-const toDoTasks = new ToDoTasks();
-
-const updateLocalStorage = () => {
-  const newLists = document.querySelectorAll('li');
-  list = [
-    {
-      description: 'Morning session',
-      completed: false,
-      index: 0,
-    },
-    {
-      description: 'Collaborative session 1',
-      completed: false,
-      index: 1,
-    },
-    {
-      description: 'Breack',
-      completed: false,
-      index: 2,
-    }
-  ];
-  newLists.forEach((newList) => {
-    list.push({
-      description: toDoTasks.description,
-      completed: newList.classList.contains('checked'),
-      index: list.length,
-    });
-  });
-  localStorage.setItem('list', JSON.stringify(list));
-};
 
 const toDoList = (task) => {
   toDoTasks.description = addNew.value;
