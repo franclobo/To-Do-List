@@ -1,8 +1,9 @@
 // import { add } from 'lodash';
 
+import { forEach } from 'lodash';
 import './style.css';
 
-// This code is based on the video: https://www.youtube.com/watch?v=ePzOFu2xXUQ
+// This code is based on the videos: https://www.youtube.com/watch?v=ePzOFu2xXUQ and https://www.youtube.com/watch?v=MkESyVB4oUw&t=1904s
 // and adapted to the Microverse requirements.
 
 const formList = document.querySelector('.form');
@@ -24,47 +25,63 @@ const toDoTasks = new ToDoTasks();
 
 const updateLocalStorage = () => {
   const newLists = document.querySelectorAll('li');
-  list = [];
+  list = [
+    {
+      description: 'Morning session',
+      completed: false,
+      index: 0,
+    },
+    {
+      description: 'Collaborative session 1',
+      completed: false,
+      index: 1,
+    },
+    {
+      description: 'Breack',
+      completed: false,
+      index: 2,
+    }
+  ];
   newLists.forEach((newList) => {
     list.push({
-      description: newList.innerText,
+      description: toDoTasks.description,
       completed: newList.classList.contains('checked'),
-      index: list.length + 1,
+      index: list.length,
     });
   });
   localStorage.setItem('list', JSON.stringify(list));
 };
 
 const toDoList = (task) => {
-  let newTask = addNew.value;
+  toDoTasks.description = addNew.value;
+  let newTask = toDoTasks.description;
   if (newTask.length < 1) return;
-  if (task) {
-    newTask = toDoTasks.description;
-  }
-
+ 
   const newList = document.createElement('li');
   if (task && task.completed) {
     newList.classList.add('checked');
-  }
+  };
   const taskInput = document.createElement('input');
   taskInput.classList.add('text');
   taskInput.type = 'text';
-  taskInput.value = newTask;
+  taskInput.value = toDoTasks.description;
   taskInput.setAttribute('readonly', 'readonly');
   newList.appendChild(taskInput);
   addNew.value = '';
+  container.appendChild(newList);
 
   const checkBtnEl = document.createElement('div');
   checkBtnEl.innerHTML = `
   <i class="fas fa-check-square"></i>
   `;
   newList.appendChild(checkBtnEl);
-  container.appendChild(newList);
+  
   const trashBtnEl = document.createElement('div');
   trashBtnEl.innerHTML = `
   <i class="fas fa-trash"></i>
   `;
   newList.appendChild(trashBtnEl);
+  
   const editBtnEl = document.createElement('div');
   editBtnEl.innerHTML = `
   <i class="fas fa-solid fa-ellipsis-vertical"></i>
@@ -95,9 +112,10 @@ const toDoList = (task) => {
       taskInput.focus();
     } else {
       taskInput.removeAttribute('readonly', 'readonly');
+      toDoTasks.description = taskInput.value;
       updateLocalStorage();
-    }    
-  })
+    }; 
+  });
 
   updateLocalStorage();
 };
