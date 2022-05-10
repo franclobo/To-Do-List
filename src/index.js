@@ -1,4 +1,4 @@
-import { add } from 'lodash';
+//import { add } from 'lodash';
 import './style.css';
 
 // This code is based on the video: https://www.youtube.com/watch?v=ePzOFu2xXUQ
@@ -19,16 +19,16 @@ class ToDoTasks {
   }
 }
 
-const toDoTasks = new ToDoTasks;
+const toDoTasks = new ToDoTasks();
 
 const updateLocalStorage = () => {
-  newLists = document.querySelectorAll('li');
+  const newLists = document.querySelectorAll('li');
   list = [];
   newLists.forEach((newList) => {
     list.push({
       description: newList.innerText,
       completed: newList.classList.contains('checked'),
-      index: list.length ++,
+      index: list.length++,
     });
   });
   localStorage.setItem('list', JSON.stringify(list));
