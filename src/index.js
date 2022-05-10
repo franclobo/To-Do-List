@@ -1,11 +1,9 @@
 // import { add } from 'lodash';
 
-import { forEach } from 'lodash';
+// import { forEach } from 'lodash';
 import './style.css';
 
-import updateLocalStorage from './modules/class.js';
-
-import { toDoTasks } from './modules/class.js'
+import { updateLocalStorage, toDoTasks } from './modules/class.js';
 
 // This code is based on the videos: https://www.youtube.com/watch?v=ePzOFu2xXUQ and https://www.youtube.com/watch?v=MkESyVB4oUw&t=1904s
 // and adapted to the Microverse requirements.
@@ -18,13 +16,13 @@ const upDate = document.querySelector('.refresh');
 
 const toDoList = (task) => {
   toDoTasks.description = addNew.value;
-  let newTask = toDoTasks.description;
+  const newTask = toDoTasks.description;
   if (newTask.length < 1) return;
- 
+
   const newList = document.createElement('li');
   if (task && task.completed) {
     newList.classList.add('checked');
-  };
+  }
   const taskInput = document.createElement('input');
   taskInput.classList.add('text');
   taskInput.type = 'text';
@@ -39,13 +37,13 @@ const toDoList = (task) => {
   <i class="fas fa-check-square"></i>
   `;
   newList.appendChild(checkBtnEl);
-  
+
   const trashBtnEl = document.createElement('div');
   trashBtnEl.innerHTML = `
   <i class="fas fa-trash"></i>
   `;
   newList.appendChild(trashBtnEl);
-  
+
   const editBtnEl = document.createElement('div');
   editBtnEl.innerHTML = `
   <i class="fas fa-solid fa-ellipsis-vertical"></i>
@@ -71,14 +69,14 @@ const toDoList = (task) => {
 
   taskInput.addEventListener('dblclick', () => {
     newList.classList.toggle('hidden');
-    if (newList.classList.contains('hidden')){
+    if (newList.classList.contains('hidden')) {
       taskInput.removeAttribute('readonly');
       taskInput.focus();
     } else {
       taskInput.removeAttribute('readonly', 'readonly');
       toDoTasks.description = taskInput.value;
       updateLocalStorage();
-    }; 
+    }
   });
 
   updateLocalStorage();

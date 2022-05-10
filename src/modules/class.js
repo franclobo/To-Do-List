@@ -1,4 +1,4 @@
-export let list = JSON.parse(localStorage.getItem('list')) || [];
+export const list = JSON.parse(localStorage.getItem('list')) || [];
 
 export class ToDoTasks {
   constructor(description = '', completed = false, index = null) {
