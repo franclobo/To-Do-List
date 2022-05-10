@@ -42,6 +42,7 @@ h1 {
   cursor: pointer;
   position: relative;
   top: -30px;
+  background-color: transparent;
 }
 
 .input {
