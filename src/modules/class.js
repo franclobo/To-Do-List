@@ -15,7 +15,7 @@ export const updateLocalStorage = () => {
   const list = [];
   newLists.forEach((newList) => {
     list.push({
-      description: toDoTasks.description,
+      description: newList.innerText,
       completed: newList.classList.contains('checked'),
       index: list.length,
     });
