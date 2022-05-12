@@ -1,4 +1,4 @@
-export const list = JSON.parse(localStorage.getItem('list')) || [];
+export const list = JSON.parse(localStorage.getItem('list'));
 
 export class ToDoTasks {
   constructor(description = '', completed = false, index = null) {
@@ -17,7 +17,7 @@ export const updateLocalStorage = () => {
     list.push({
       description: newList.innerText,
       completed: newList.classList.contains('checked'),
-      index: list.length,
+      index: list.length + 1,
     });
   });
   localStorage.setItem('list', JSON.stringify(list));

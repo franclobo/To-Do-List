@@ -99,3 +99,17 @@ if (list) {
     toDoList(task);
   });
 };
+
+const checkStorage = () => {
+  return list ? JSON.parse(list) : [];
+};
+
+window.addEventListener('load', () => {
+  const defaultList = checkStorage();
+  console.log(defaultList);
+  if (defaultList.length > 0) {
+    defaultList.forEach((task) => {
+      toDoList(task);
+    });
+  }
+});
