@@ -76,6 +76,10 @@ h1 {
   position: relative;
 }
 
+.list li.hidden {
+  background-color: yellow;
+}
+
 .list li .fa-trash {
   color: red;
   position: absolute;
@@ -83,6 +87,11 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  visibility: hidden;
+}
+
+.list li.hidden .fa-trash {
+  visibility: visible;
 }
 
 .list li .fa-check-square {
@@ -101,6 +110,35 @@ h1 {
 
 .list li.checked .fa-check-square {
   color: green;
+}
+
+.list li .fa-ellipsis-vertical {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: black;
+  visibility: visible;
+}
+
+.list li.hidden .fa-ellipsis-vertical {
+  visibility: hidden;
+}
+
+.list li .text {
+  background-color: transparent;
+  width: 400px;
+  outline: none;
+  border: none;
+  cursor: text;
+}
+
+.list li.hidden .text {
+  background-color: transparent;
+  width: 400px;
+  outline: none;
+  cursor: text;
 }
 
 .clear {
