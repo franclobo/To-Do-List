@@ -1,6 +1,4 @@
-import { updateLocalStorage, toDoTasks } from './class.js';
-
-import { list } from './class.js';
+import { updateLocalStorage, toDoTasks, list } from './class.js';
 
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
@@ -61,7 +59,7 @@ const toDoList = (task) => {
     location.reload();
     return uncompleted;
   });
-  
+
   newList.addEventListener('dblclick', () => {
     newList.classList.toggle('hidden');
     if (newList.classList.contains('hidden')) {
