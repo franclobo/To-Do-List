@@ -87,4 +87,4 @@ upDate.addEventListener('click', () => {
   }
 });
 
-export default toDoList();
+export default toDoList;
