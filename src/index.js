@@ -12,7 +12,10 @@ const clearAll = document.querySelector('.clear');
 const upDate = document.querySelector('.refresh');
 
 const toDoList = (task) => {
-  const newTask = addNew.value;
+  let newTask = addNew.value;
+  if(task){
+    newTask=task.description;
+  }
   const newList = document.createElement('li');
   if (task && task.completed) {
     newList.classList.add('checked');
@@ -89,7 +92,7 @@ formList.addEventListener('submit', (event) => {
 });
 
 addNew.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter' && addNew.value.length > 0) {
+  if (e.key === 'Enter' && addNew.value.length) {
     e.preventDefault();
     toDoList();
   }
