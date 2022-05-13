@@ -56,7 +56,7 @@ const toDoList = (task) => {
   clearAll.addEventListener('click', () => {
     const uncompleted = list.filter((task) => task.completed === false);
     localStorage.setItem('list', JSON.stringify(uncompleted));
-    location.reload();
+    window.location.reload();
     return uncompleted;
   });
 
@@ -82,7 +82,7 @@ addNew.addEventListener('keypress', (e) => {
 });
 
 upDate.addEventListener('click', () => {
-  location.reload();
+  window.location.reload();
 });
 
 export default toDoList;
