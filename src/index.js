@@ -1,6 +1,4 @@
-// import { add } from 'lodash';
 
-// import { forEach } from 'lodash';
 import './style.css';
 
 import { updateLocalStorage, toDoTasks, list } from './modules/class.js';
@@ -16,42 +14,41 @@ const upDate = document.querySelector('.refresh');
 
 const toDoList = (task) => {
   
-  const newTask = addNew.value;
-  if (newTask.length < 1) return;
-  if (task) {
-    newTask = toDoTasks.description;
-  }
-  
+  const newTask = addNew.value;       
   const newList = document.createElement('li');
   if (task && task.completed) {
     newList.classList.add('checked');
-  }  
+  }
+    
   const taskInput = document.createElement('input');
+  newList.appendChild(taskInput);
   taskInput.classList.add('text');
   taskInput.type = 'text';
-  taskInput.value = newList.innerText;
+  if (newTask.length > 0) {
+    taskInput.value = newTask;
+  }
   taskInput.setAttribute('readonly', 'readonly');
-  newList.appendChild(taskInput);
-  newList.innerText = newTask;
-  addNew.value = '';
+  toDoTasks.description = taskInput.value;
   container.appendChild(newList);
+  addNew.value = '';
+  
 
   const checkBtnEl = document.createElement('div');
   checkBtnEl.innerHTML = `
-  <i class="fas fa-check-square"></i>
-  `;
+    <i class="fas fa-check-square"></i>
+    `;
   newList.appendChild(checkBtnEl);
 
   const trashBtnEl = document.createElement('div');
   trashBtnEl.innerHTML = `
-  <i class="fas fa-trash"></i>
-  `;
+    <i class="fas fa-trash"></i>
+    `;
   newList.appendChild(trashBtnEl);
 
   const editBtnEl = document.createElement('div');
   editBtnEl.innerHTML = `
-  <i class="fas fa-solid fa-ellipsis-vertical"></i>
-  `;
+    <i class="fas fa-solid fa-ellipsis-vertical"></i>
+    `;
   newList.appendChild(editBtnEl);
 
   checkBtnEl.addEventListener('click', () => {
@@ -71,7 +68,7 @@ const toDoList = (task) => {
     }
   });
 
-  container.addEventListener('dblclick', () => {
+  newList.addEventListener('dblclick', () => {
     newList.classList.toggle('hidden');
     if (newList.classList.contains('hidden')) {
       taskInput.removeAttribute('readonly');
@@ -86,7 +83,9 @@ const toDoList = (task) => {
 };
 
 upDate.addEventListener('click', () => {
-  toDoList();
+  if(addNew.value.length > 0){
+    toDoList();
+  }  
 });
 
 formList.addEventListener('submit', (event) => {
@@ -94,22 +93,18 @@ formList.addEventListener('submit', (event) => {
   toDoList();
 });
 
-if (list) {
-  list.forEach((task) => {
-    toDoList(task);
-  });
-};
+addNew.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && addNew.value.length > 0) {
+    e.preventDefault();
+    toDoList();
+  }
+});
 
-const checkStorage = () => {
-  return list ? JSON.parse(list) : [];
-};
 
 window.addEventListener('load', () => {
-  const defaultList = checkStorage();
-  console.log(defaultList);
-  if (defaultList.length > 0) {
-    defaultList.forEach((task) => {
+  if (list) {
+    list.forEach((task) => {
       toDoList(task);
     });
-  }
+  };
 });

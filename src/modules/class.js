@@ -15,10 +15,10 @@ export const updateLocalStorage = () => {
   const list = [];
   newLists.forEach((newList) => {
     list.push({
-      description: newList.innerText,
+      description: newList.firstElementChild.value,
       completed: newList.classList.contains('checked'),
       index: list.length + 1,
-    });
-  });
+    })
+  })
   localStorage.setItem('list', JSON.stringify(list));
 };
