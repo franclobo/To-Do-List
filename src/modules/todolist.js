@@ -1,5 +1,7 @@
 import { updateLocalStorage, toDoTasks } from './class.js';
 
+import { list } from './class.js';
+
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const addNew = document.querySelector('.input');
@@ -54,12 +56,12 @@ const toDoList = (task) => {
   });
 
   clearAll.addEventListener('click', () => {
-    if (newList.classList.contains('checked')) {
-      newList.remove();
-      updateLocalStorage();
-    }
+    const uncompleted = list.filter(task => task.completed === false);
+    localStorage.setItem('list', JSON.stringify(uncompleted));
+    location.reload();
+    return uncompleted;
   });
-
+  
   newList.addEventListener('dblclick', () => {
     newList.classList.toggle('hidden');
     if (newList.classList.contains('hidden')) {
@@ -82,9 +84,7 @@ addNew.addEventListener('keypress', (e) => {
 });
 
 upDate.addEventListener('click', () => {
-  if (addNew.value.length > 0) {
-    toDoList();
-  }
+  location.reload();
 });
 
 export default toDoList;
