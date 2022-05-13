@@ -18,7 +18,7 @@ export const updateLocalStorage = () => {
       description: newList.firstElementChild.value,
       completed: newList.classList.contains('checked'),
       index: list.length + 1,
-    })
-  })
+    });
+  });
   localStorage.setItem('list', JSON.stringify(list));
 };
