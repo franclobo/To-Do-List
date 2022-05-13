@@ -3,7 +3,8 @@ import { updateLocalStorage, toDoTasks } from './class.js';
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const addNew = document.querySelector('.input');
-export const toDoList = (task) => {
+const upDate = document.querySelector('.refresh');
+export default toDoList = (task) => {
   let newTask = addNew.value;
   if (task) {
     newTask = task.description;
@@ -76,6 +77,12 @@ export const toDoList = (task) => {
 addNew.addEventListener('keypress', (e) => {
   if (e.key === 'Enter' && addNew.value.length) {
     e.preventDefault();
+    toDoList();
+  }
+});
+
+upDate.addEventListener('click', () => {
+  if (addNew.value.length > 0) {
     toDoList();
   }
 });
