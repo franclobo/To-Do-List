@@ -1,9 +1,10 @@
 import { updateLocalStorage, toDoTasks } from './class.js';
 
-import { addNew } from '../index.js'
+import addNew from '../index.js';
 
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
+const addNew = document.querySelector('.input');
 export const toDoList = (task) => {
   let newTask = addNew.value;
   if (task) {
@@ -73,3 +74,10 @@ export const toDoList = (task) => {
 
   updateLocalStorage();
 };
+
+addNew.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && addNew.value.length) {
+    e.preventDefault();
+    toDoList();
+  }
+});
