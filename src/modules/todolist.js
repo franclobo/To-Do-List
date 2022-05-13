@@ -4,7 +4,7 @@ const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const addNew = document.querySelector('.input');
 const upDate = document.querySelector('.refresh');
-export default toDoList = (task) => {
+const toDoList = (task) => {
   let newTask = addNew.value;
   if (task) {
     newTask = task.description;
@@ -86,3 +86,5 @@ upDate.addEventListener('click', () => {
     toDoList();
   }
 });
+
+export default toDoList();
