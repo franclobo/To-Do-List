@@ -1,7 +1,5 @@
 import { updateLocalStorage, toDoTasks } from './class.js';
 
-import addNew from '../index.js';
-
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const addNew = document.querySelector('.input');
