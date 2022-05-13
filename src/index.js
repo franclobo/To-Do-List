@@ -1,4 +1,3 @@
-
 import './style.css';
 
 import { updateLocalStorage, toDoTasks, list } from './modules/class.js';
@@ -11,15 +10,13 @@ const addNew = document.querySelector('.input');
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
 const upDate = document.querySelector('.refresh');
-
 const toDoList = (task) => {
-  
+
   const newTask = addNew.value;       
   const newList = document.createElement('li');
   if (task && task.completed) {
     newList.classList.add('checked');
   }
-    
   const taskInput = document.createElement('input');
   newList.appendChild(taskInput);
   taskInput.classList.add('text');
@@ -31,7 +28,6 @@ const toDoList = (task) => {
   toDoTasks.description = taskInput.value;
   container.appendChild(newList);
   addNew.value = '';
-  
 
   const checkBtnEl = document.createElement('div');
   checkBtnEl.innerHTML = `
@@ -83,11 +79,10 @@ const toDoList = (task) => {
 };
 
 upDate.addEventListener('click', () => {
-  if(addNew.value.length > 0){
+  if(addNew.value.length > 0) {
     toDoList();
   }  
 });
-
 formList.addEventListener('submit', (event) => {
   event.preventDefault();
   toDoList();
@@ -100,11 +95,10 @@ addNew.addEventListener('keypress', (e) => {
   }
 });
 
-
 window.addEventListener('load', () => {
   if (list) {
     list.forEach((task) => {
       toDoList(task);
     });
   };
-});
+})
