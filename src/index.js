@@ -13,7 +13,7 @@ const upDate = document.querySelector('.refresh');
 
 const toDoList = (task) => {
   let newTask = addNew.value;
-  if (task){
+  if (task) {
     newTask = task.description;
   }
   const newList = document.createElement('li');
