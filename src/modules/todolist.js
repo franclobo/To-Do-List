@@ -54,7 +54,7 @@ const toDoList = (task) => {
   });
 
   clearAll.addEventListener('click', () => {
-    const uncompleted = list.filter(task => task.completed === false);
+    const uncompleted = list.filter((task) => task.completed === false);
     localStorage.setItem('list', JSON.stringify(uncompleted));
     location.reload();
     return uncompleted;
