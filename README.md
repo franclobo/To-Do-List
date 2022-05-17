@@ -14,7 +14,7 @@ In this project, I will restructure my Awesome books app code. The goal is to ma
 
 ## Live Demo
 
-[To-Do-list](https://franclobo.github.io/To-Do-List/)
+[To-Do-list](https://franclobo.github.io/To-Do-List/dist/)
 
 ## Authors
 
