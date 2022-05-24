@@ -1,4 +1,4 @@
-import { updateLocalStorage, toDoTasks, list } from './class.js';
+import { updateLocalStorage, toDoTasks, list, ToDoTasks } from './class.js';
 
 const container = document.querySelector('.list');
 const clearAll = document.querySelector('.clear');
@@ -54,10 +54,10 @@ const toDoList = (task) => {
   });
 
   clearAll.addEventListener('click', () => {
-    const uncompleted = list.filter((task) => task.completed === false);
-    localStorage.setItem('list', JSON.stringify(uncompleted));
+    let unlist = JSON.parse(localStorage.getItem('list'));
+    unlist = unlist.filter((task) => task.completed === false);
+    localStorage.setItem('list', JSON.stringify(unlist));
     window.location.reload();
-    return uncompleted;
   });
 
   newList.addEventListener('dblclick', () => {
